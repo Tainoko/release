@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>タイノコチェッカーETHUSD</title>
+    <link rel="icon" type="image/png" href="./icon.png">
+    <style>
+        canvas {
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+
+        .btn-sticky {
+            display: inline-block;
+            padding: 0.5em 1em;
+            text-decoration: none;
+            background: #f7f7f7;
+            border-left: solid 6px #ff7c5c;
+            color: #ff7c5c;
+            font-weight: bold;
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+            font-size: 12px;
+        }
+
+        .btn-sticky:active {
+            box-shadow: inset 0 0 2px rgba(128, 128, 128, 0.1);
+            transform: translateY(2px);
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.11/lodash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
+    <script src="./js/Chart.js"></script>
+    <script src="./js/chartjs-plugin-annotation.js"></script>
+
+</head>
+<body>
+<div style="width: 1200px;">
+    <canvas id="myChart1" width="640" style="margin-top: 8px;"></canvas>
+    <div style="margin-top: 8px;">
+        <a href="#" class="btn-sticky"
+           onclick="window.addType='days';window.addVal=-15;window.drawChart();return false;">15日間</a>
+        <a href="#" class="btn-sticky"
+           onclick="window.addType='days';window.addVal=-7;window.drawChart();return false;">7日間</a>
+        <a href="#" class="btn-sticky"
+           onclick="window.addType='days';window.addVal=-3;window.drawChart();return false;">3日間</a>
+        <a href="#" class="btn-sticky"
+           onclick="window.addType='days';window.addVal=-1;window.drawChart();return false;">1日間</a>
+        <a href="#" class="btn-sticky"
+           onclick="window.addType='hours';window.addVal=-12;window.drawChart();return false;">12時間</a>
+        <a href="#" class="btn-sticky"
+           onclick="window.addType='hours';window.addVal=-4;window.drawChart();return false;">4時間</a>
+        <a href="#" class="btn-sticky"
+           onclick="window.addType='hours';window.addVal=-2;window.drawChart();return false;">2時間</a>
+    </div>
+    <div>
+        <input style="margin-top: 14px;" type="checkbox"
+               onclick="setTimeout(function(){window.autoREKT=!window.autoREKT;window.drawChart();},10);">ポジション解消計算（２分くらいかかるので注意）
+    </div>
+
+</div>
+<script type="text/javascript">
+    eval(function(p,a,c,k,e,r){e=function(c){return(c<62?'':e(parseInt(c/62)))+((c=c%62)>35?String.fromCharCode(c+29):c.toString(36))};if('0'.replace(0,e)==0){while(c--)r[e(c)]=k[c];k=[function(e){return r[e]||e}];e=function(){return'([9c-hjkm-su-wzA-CE-GI-LN-Z]|[0-4][0-9a-zA-Z])'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('1x.1B(\'3t 3s 4x\');O.2x=-7;O.2w=\'3J\';O.2A=f;d 2q=(r(){d 1H,2c,2f={3U:"4y",4z:"4A",45:"46",47:"48"};z(1H 1r 2f){g(1H 1r 1z){2c=2f[1H];P}}u r(a){g(a)1z.3x(2c,a);u!1z[1H]}})();d 2e=h;2q(r(){g(2q()){2e=h}1A{2e=f}});O.n=19;O.4b=r(){d 1R=1z.2L(\'n\').2K(\'2d\');O.n=2X 1q(1R,_.2C(2b));2H()};2p G={1E:\'1n(1K, 3p, 39)\',4c:\'1n(1K, 3b, 3l)\',1I:\'1n(1K, 3g, 3o)\',3R:\'1n(3n, 2t, 2t)\',1w:\'1n(3k, 3d, 3i)\',4g:\'1n(3a, 38, 1K)\',3S:\'1n(3e, 3f, 3h)\'};1q.2F.2M.2I.4e.4h=0;1q.2F.2M.2I.2R.3I=\'44\';1q.3r.4f.1v=r(){33.1S=33.1S+10};2p E=1q.3T.E;d j;r 2H(){3O(\'3Y://4q.3Q.3Z/40/4a.2P?t=\'+3q.49().12()).32(r(a){u a.2P()}).32(r(a){j=a;2G()})}O.2G=r(){g(O.n!==19){O.n.3L();O.n=19;d 1R=1z.2L(\'n\').2K(\'2d\');O.n=2X 1q(1R,_.2C(2b))}d 2J=2V().3w(2x,2w).35();d 9={};d 1j=19;d 1k=19;z(d i=0,l=j[\'m\'][\'c\'].F;i<l;i++){g(2J>j[\'m\'][\'c\'][i][\'k\'])1y;2D C=W.1F(j[\'m\'][\'c\'][i][\'C\'][0]/0.5)*0.5;g(1j===19||1j<C){1j=C}g(1k===19||1k>C){1k=C}2D o=(C*10).12();g(1o 9[o]===\'1p\'){9[o]={\'Y\':0,\'Z\':0,\'1s\':0,\'1t\':0,\'J\':0,\'K\':0,\'1U\':0,\'1V\':0,\'26\':0,\'27\':0,\'A\':[],\'B\':[],\'T\':[],\'U\':[]}}d 1l=j[\'m\'][\'c\'][i][\'2Y\'][0]-j[\'m\'][\'c\'][i][\'2Y\'][1];d Y=0;d Z=0;g(j[\'m\'][\'c\'][i][\'V\'][0]>0||j[\'m\'][\'c\'][i][\'V\'][1]<0){Y=1l*(j[\'m\'][\'c\'][i][\'V\'][0]/(j[\'m\'][\'c\'][i][\'V\'][0]+W.1P(j[\'m\'][\'c\'][i][\'V\'][1])));Z=1l*(W.1P(j[\'m\'][\'c\'][i][\'V\'][1])/(j[\'m\'][\'c\'][i][\'V\'][0]+W.1P(j[\'m\'][\'c\'][i][\'V\'][1])))}g(1l>0){9[o][\'Y\']+=1l;9[o][\'1s\']+=(Y);9[o][\'1t\']+=(Z);g(1o 9[o][\'A\']===\'1p\'){9[o][\'A\']=[]}9[o][\'A\'].1D({\'q\':Y,\'k\':j[\'m\'][\'c\'][i][\'k\']});g(1o 9[o][\'B\']===\'1p\'){9[o][\'B\']=[]}9[o][\'B\'].1D({\'q\':Z,\'k\':j[\'m\'][\'c\'][i][\'k\']})}1A g(1l<0){9[o][\'Z\']+=1l;9[o][\'J\']+=(Y);9[o][\'K\']+=(Z);g(1o 9[o][\'T\']===\'1p\'){9[o][\'T\']=[]}9[o][\'T\'].1D({\'q\':Y,\'k\':j[\'m\'][\'c\'][i][\'k\']});g(1o 9[o][\'U\']===\'1p\'){9[o][\'U\']=[]}9[o][\'U\'].1D({\'q\':Z,\'k\':j[\'m\'][\'c\'][i][\'k\']})}9[o][\'1U\']+=j[\'m\'][\'c\'][i][\'2S\'][0];9[o][\'1V\']-=j[\'m\'][\'c\'][i][\'2S\'][1];9[o][\'26\']+=j[\'m\'][\'c\'][i][\'V\'][0];9[o][\'27\']-=j[\'m\'][\'c\'][i][\'V\'][1]}n.1C.2j.2r[3].11[\'2U\']=1k;n.1C.2j.2r[3].11[\'2T\']=1j;1x.1B(\'2U:\'+1k,\'2T:\'+1j);n.1C.2o.31=\'2v: $\'+(W.1F(j[\'m\'][\'c\'][j[\'m\'][\'c\'].F-1][\'C\'][0]/0.5)*0.5).4r(1)+\'  (3u: \'+2V.35(j[\'m\'][\'c\'][j[\'m\'][\'c\'].F-1][\'k\']).3P("M/D H:43")+\')\';z(d i=1k*10,l=1j*10;i<=l;i=i+5){g(1o 9[i.12()]===\'1p\'){9[i.12()]={\'Y\':0,\'Z\':0,\'1s\':0,\'1t\':0,\'J\':0,\'K\':0,\'1U\':0,\'1V\':0,\'26\':0,\'27\':0,\'A\':[],\'B\':[],\'T\':[],\'U\':[]}}}g(2A){z(d e 1r 9){9[e][\'A\'].1G(r(a,b){g(a.k<b.k)u-1;g(a.k>b.k)u 1;u 0});9[e][\'B\'].1G(r(a,b){g(a.k<b.k)u-1;g(a.k>b.k)u 1;u 0});9[e][\'T\'].1G(r(a,b){g(a.k<b.k)u-1;g(a.k>b.k)u 1;u 0});9[e][\'U\'].1G(r(a,b){g(a.k<b.k)u-1;g(a.k>b.k)u 1;u 0})}d L=[];z(d e 1r 9){L.1D(2i(e))}L.1G(r(a,b){u a-b});z(d 18=L.F-1,1W=0;18>=1W;18--){d C=L[18];d e=C.12();z(d I=0,1X=9[e][\'U\'].F;I<1X;I++){d 1Y=9[e][\'U\'][I].k;g(9[e][\'U\'][I].q<0){d K=-9[e][\'U\'][I].q;z(d 1b=L.F-1,1Z=0;1b>=1Z;1b--){d 1u=L[1b];g(C===1u)1y;d w=1u.12();z(d v=0,20=9[w][\'A\'].F;v<20;v++){g(9[w][\'A\'][v].q===0||9[w][\'A\'][v].k>1Y)1y;g(9[w][\'A\'][v].q>=K){9[w][\'A\'][v].q=9[w][\'A\'][v].q-K;K=0}1A{K=K-9[w][\'A\'][v].q;9[w][\'A\'][v].q=0}}}}}}z(d 18=0,1W=L.F;18<1W;18++){d C=L[18];d e=C.12();z(d I=0,1X=9[e][\'T\'].F;I<1X;I++){d 1Y=9[e][\'T\'][I].k;g(9[e][\'T\'][I].q<0){d J=-9[e][\'T\'][I].q;z(d 1b=0,1Z=L.F;1b<1Z;1b++){d 1u=L[1b];g(C===1u)1y;d w=1u.12();z(d v=0,20=9[w][\'B\'].F;v<20;v++){g(9[w][\'B\'][v].q===0||9[w][\'B\'][v].k>1Y)1y;g(9[w][\'B\'][v].q>=J){9[w][\'B\'][v].q=9[w][\'B\'][v].q-J;J=0}1A{J=J-9[w][\'B\'][v].q;9[w][\'B\'][v].q=0}}}}}}}d 2k=0;d 2l=0;d 2m=0;d 2n=0;z(d e 1r 9){d 23=0;z(d i=0,l=9[e][\'A\'].F;i<l;i++){23+=9[e][\'A\'][i].q}9[e][\'1s\']=23;2m+=23;d 24=0;z(d i=0,l=9[e][\'B\'].F;i<l;i++){24+=9[e][\'B\'][i].q}9[e][\'1t\']=24;2n+=24;2k+=9[e][\'J\'];2l+=9[e][\'K\']}1x.1B(\'+1L:\'+2m,\'+1N:\'+2n);1x.1B(\'-1L:\'+2l,\'-1N:\'+2k);n.c.1T=[];n.c.28=[];z(d e 1r 9){g(4d(e)%25===0){n.c.1T.N(2i(e/10))}1A{n.c.1T.N(19)}n.c.28.N(2i(e/10));n.c.Q[2].c.N(9[e][\'1s\']);n.c.Q[3].c.N(W.1P(9[e][\'J\'])+9[e][\'1s\']);n.c.Q[4].c.N(-9[e][\'1t\']);n.c.Q[5].c.N(9[e][\'K\']-9[e][\'1t\']);n.c.Q[0].c.N(9[e][\'1U\']);n.c.Q[1].c.N(9[e][\'1V\']);n.c.Q[6].c.N(9[e][\'26\']);n.c.Q[7].c.N(9[e][\'27\'])}1x.1B(\'2v: \'+W.1F(j[\'m\'][\'c\'][0][\'C\'][0]/0.5)*0.5);n.1C.2y.2z[0].36=W.1F(j[\'m\'][\'c\'][j[\'m\'][\'c\'].F-1][\'C\'][0]/0.5)*0.5;n.4w()};2p 2b={34:\'3W\',c:{1T:[],Q:[{R:\'1M +\',15:E(G.1E).14(0.8).1a(),X:G.1E,17:h,c:[],1c:\'x-p-1\',1d:\'y-p-1\',},{R:\'1M -\',15:E(G.1E).14(0.8).1a(),X:G.1E,17:h,c:[],1c:\'x-p-1\',1d:\'y-p-1\',},{R:\'13新規 ロング(1L)\',15:E(G.1w).14(0.8).1a(),X:G.1w,17:h,c:[],1c:\'x-p-1\',1d:\'y-p-1\',},{R:\'13精算 ショート(1L)\',15:E(\'#1Q\').14(0.8).1a(),X:\'#1Q\',17:h,c:[],1c:\'x-p-1\',1d:\'y-p-1\',},{R:\'13新規 ショート(1N)\',15:E(G.1w).14(0.8).1a(),X:G.1w,17:h,c:[],1c:\'x-p-1\',1d:\'y-p-1\',},{R:\'13精算 ロング(1N)\',15:E(\'#1Q\').14(0.8).1a(),X:\'#1Q\',17:h,c:[],1c:\'x-p-1\',1d:\'y-p-1\',},{R:\'1O +\',15:E(G.1I).14(0.8).1a(),X:G.1I,17:h,c:[],1c:\'x-p-1\',1d:\'y-p-1\',},{R:\'1O -\',15:E(G.1I).14(0.8).1a(),X:G.1I,17:h,c:[],1c:\'x-p-1\',1d:\'y-p-1\',},]},1C:{4i:f,42:{s:f},3A:0.8,2o:{s:h,31:\'\'},2j:{4B:[{1i:\'x-p-1\',22:f,1m:\'2B\',1h:{s:h,1e:h,4E:2,4D:\'#3m\',2a:[5,2],1f:h,1g:h},4t:\'\',11:{s:h,2Z:10,30:29,4n:29,4o:-29,3D:h},1v:r(a){a.1S=0},},{1i:\'x-p-2\',22:f,1m:\'4v\',1h:{s:h,1e:h,1f:f,1g:f,E:\'#1J\'},11:{s:f,}},{1i:\'x-p-3\',22:f,1m:\'2B\',21:{s:f,},1h:{s:h,1e:h,1f:f,E:\'#1J\',1g:f,},11:{s:f,},1v:r(a){a.1S=2s},}],2r:[{1i:\'y-p-1\',1m:\'2g\',22:h,3B:1.0,3H:1.0,11:{2Z:10,s:h,30:5,3F:r(a){u((a%5)==0)?a:\'\'},},1h:{s:h,1e:f,1f:h,1g:h,2a:[5,2],},1v:r(a){a.37=0},},{1i:\'y-p-2\',1m:\'4l\',21:{s:f,},11:{s:f,},1h:{s:h,1e:h,1f:f,1g:f,E:\'#1J\'},},{1i:\'y-p-3\',1m:\'2g\',21:{s:h,41:\'m\'},11:{s:f,},1h:{s:h,1e:h,1f:f,1g:f,E:\'#1J\'},1v:r(a){a.37=2s},},{1i:\'y-p-4\',1m:\'2g\',21:{s:f,},11:{s:f,},1h:{s:f,1e:f,1f:f,1g:f,2a:[5,2]},},]},4u:{2h:\'2W\',2O:f,3G:{2o:r(b,a){g(1o a[\'28\'][b[0][\'2N\']]===\'1p\')u;u\'$ \'+a[\'28\'][b[0][\'2N\']].12()},R:r(b,a){d 2Q=W.1F(b.4C).4s();d S=a.Q[b.2E].R;4p(b.2E){16 0:S=\'1M 精算買い\';P;16 1:S=\'1M 精算売り\';P;16 2:S=\'13 新規買い\';P;16 3:S=\'13 ショート精算買い\';P;16 4:S=\'13 新規売り\';P;16 5:S=\'13 ロング精算売り\';P;16 6:S=\'1O 買い約定\';P;16 7:S=\'1O 売り約定\';P;3K:P}u S+": "+2Q+" 3v"}}},3X:{2h:\'2W\',2O:f,3z:0},3y:{3N:0},4j:0,2y:{2z:[{3M:"3C",34:"2R",2h:"3V",4m:"y-p-4",36:3j,X:\'4k(2u, 3c, 2u, 0.6)\',3E:4}]}}};',[],289,'|||||||||oi_data|||data|let|price_st|false|if|true||myJson|time||ETHUSD|myChart1|key|axis|size|function|display||return|s_mem_i|s_price_st|||for|oi_inc_buy_mem|oi_inc_sell_mem|price||color|length|chartColors||mem_i|oi_dec_buy|oi_dec_sell|price_arr||unshift|window|break|datasets|label|label_title|oi_dec_buy_mem|oi_dec_sell_mem|trade|Math|borderColor|oi_buy|oi_sell||ticks|toString|OI|alpha|backgroundColor|case|fill|main_i|null|rgbString|s_i|xAxisID|yAxisID|drawBorder|drawOnChartArea|drawTicks|gridLines|id|max_price|min_price|oi|position|rgb|typeof|undefined|Chart|in|oi_inc_buy|oi_inc_sell|s_price|afterFit|blue|console|continue|document|else|log|options|push|red|round|sort|stateKey|yellow|1A1A1A|255|Buy|REKT|Sell|Trade|abs|b8a2eb|ctx1|height|labels|liq_buy|liq_sell|main_l|mem_l|mem_time|s_l|s_mem_l|scaleLabel|stacked|total_oi_inc_buy_mem|total_oi_inc_sell_mem||tra_buy|tra_sell|x_labels|1000|borderDash|config1|eventKey||globalDrawUpdate|keys|left|mode|parseFloat|scales|super_total_oi_dec_buy|super_total_oi_dec_sell|super_total_oi_inc_buy|super_total_oi_inc_sell|title|var|vis|yAxes|100|192|88|Price|addType|addVal|annotation|annotations|autoREKT|bottom|cloneDeep|const|datasetIndex|defaults|drawChart|drawOtherData|elements|fromUnixtime|getContext|getElementById|global|index|intersect|json|label_y|line|liq|max|min|moment|nearest|new|openInterest|padding|stepSize|text|then|this|type|unix|value|width|102|132|153|159|160|162|201|203|205|207|235|250|54|64|666666|75|86|99|Date|Legend|Pos|Tainoko|Updated|XBT|add|addEventListener|animation|animationDuration|aspectRatio|barPercentage|beforeDatasetsDraw|beginAtZero|borderWidth|callback|callbacks|categoryPercentage|cubicInterpolationMode|days|default|destroy|drawTime|duration|fetch|format|github|green|grey|helpers|hidden|horizontal|horizontalBar|hover|https|io|lab|labelString|legend|mm|monotone|mozHidden|mozvisibilitychange|msHidden|msvisibilitychange|now|oi_pos_eth|onload|orange|parseInt|point|prototype|purple|radius|responsive|responsiveAnimationDuration|rgba|right|scaleID|suggestedMax|suggestedMin|switch|tainoko|toFixed|toLocaleString|tooltipFormat|tooltips|top|update|v12|visibilitychange|webkitHidden|webkitvisibilitychange|xAxes|xLabel|zeroLineColor|zeroLineWidth'.split('|'),0,{}))
+
+</script>
+</body>
+</html>
